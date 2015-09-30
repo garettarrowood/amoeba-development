@@ -7,7 +7,7 @@
     <th>Talent</th>
     <th></th>
   </tr>
-  <%= @amoebas.each do |am| %>
+  <% @amoebas.map do |am| %>
   <tr>
     <td><img src="<%= am.avatar %>" width="75"></td>
     <td><%= link_to am.name, am %></td>

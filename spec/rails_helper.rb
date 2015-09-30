@@ -41,6 +41,35 @@ RSpec.configure do |config|
 
   DatabaseCleaner.strategy = :truncation
 
+  config.before(:each) do 
+    @acrobat = Talent.create(name: "acrobat")
+    @juggler = Talent.create(name: "juggler")
+
+    @dr_teeth = Act.create(name: "Dr. Teeth and the Electric Mayhem")
+    @crunch = Act.create(name: "Crunch")
+
+    @zack = Amoeba.create(name: "Zack", generation: 1, talent: @juggler, acts: [@dr_teeth])
+    @amelie = Amoeba.create(name: "Amelie", generation: 2, talent: @juggler, acts: [@crunch])
+    @billy = Amoeba.create(name: "Billy", generation: 1, talent: @acrobat, acts: [@dr_teeth, @crunch])
+  end
+
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.start
+  end
+
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
