@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Act, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Act do
+  
+  it "can have name" do
+    expect(Talent.new(name: "Jester")).to be_valid
+  end
+
 end
