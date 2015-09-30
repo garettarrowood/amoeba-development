@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 20150930174013) do
 
   create_table "acts_amoebas", force: :cascade do |t|
     t.integer "act_id"
-    t.integer "ameoba_id"
+    t.integer "amoeba_id"
   end
+
+  add_index "acts_amoebas", ["act_id"], name: "index_acts_amoebas_on_act_id"
+  add_index "acts_amoebas", ["amoeba_id"], name: "index_acts_amoebas_on_amoeba_id"
 
   create_table "amoebas", force: :cascade do |t|
     t.string  "name"
@@ -32,7 +35,10 @@ ActiveRecord::Schema.define(version: 20150930174013) do
   end
 
   create_table "talents", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "amoeba_id"
   end
+
+  add_index "talents", ["amoeba_id"], name: "index_talents_on_amoeba_id"
 
 end
