@@ -1,24 +1,19 @@
-class Test
-
-  def spacing
-    if i_dont_ever_press
-      tab
-    end
-  end
-
-  def tabbing
-    oops tab is set to 4 on this
-  end
-
-  def last
-      where will this show up?
-        this is one tab farther than the above
-          and so is this
-  end
+class LastTests
+  not_tab
+  tabbed
 
 
+starting from far left
+
+        tabbed 4 times  
+        matched spaces
+
+    arrowed back 4 spaces
+      tabbed once from above
+
+  2 spaces
+  1 tab
+
+end    
 
 
-
-
-end
