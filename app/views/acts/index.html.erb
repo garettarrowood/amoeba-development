@@ -1,0 +1,22 @@
+<h1>Listing Acts</h1>
+<table>
+  <tr>
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Date</th>
+    <th></th>
+  </tr>
+  <% @acts.map do |act| %>
+  <tr>
+    <td><img src="<%= act.picture %>" width="75"></td>
+    <td><%= link_to act.name, act %></td>
+    <td><%= act.created_at.strftime("%H:%M") %></td>
+    <td><%= act.created_at.strftime("%Y-%m-%d") %></td>
+    <td><%= link_to "Destroy", "/acts/#{act.id}", method: :delete %></td>
+  </tr>
+  <% end %>
+
+</table>
+
+<%= link_to "New Act", new_act_path %>

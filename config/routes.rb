@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :acts 
   resources :amoebas
+
+  post '/split/:id', to: 'amoebas#split', as: 'split'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

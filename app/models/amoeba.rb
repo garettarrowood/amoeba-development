@@ -1,7 +1,7 @@
 class Amoeba < ActiveRecord::Base
-  has_many :acts_amoebas
+  has_many :acts_amoebas, dependent: :destroy
   has_many :acts, through: :acts_amoebas
-  has_one :talent
+  belongs_to :talent
 
   NAMES = ["Jeff", "Bob", "Ansley", "Ashley", "Mary", "Molly", "Heather", "Sambo", "Judy", "Frank", "Jester", "Frances", "Jimbob", "Lucky", "Shosta", "Plagul", "Zack", "Jessica"]
 

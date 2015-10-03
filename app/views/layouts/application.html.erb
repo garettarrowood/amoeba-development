@@ -8,12 +8,28 @@
 </head>
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-
+    <div class="container">
+      <div class="navbar-header">
+        <%= button_to "Home", main_path %>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Amoebas", amoebas_path %></li>
+          <li><%= link_to "Acts", acts_path %></li>
+        </ul>
+      </div>
     </div>
   </div>
 
-<%= yield %>
+  <div id="content" >
+    <div class="wrapper">
+      <% flash.each do |name, msg| %>
+         <%= msg %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>

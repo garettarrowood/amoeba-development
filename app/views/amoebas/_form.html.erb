@@ -11,11 +11,16 @@
   </div>
 
   <div class="field">
-
+    <%= f.label :talent_id %><br>
+    <%= collection_select(:talent, :talent_id, Talent.all, :id, :name) %>
   </div>
 
   <div class="field">
-
+    <%= f.label :acts %><br>
+    <% Act.all.each do |act| %>
+      <%= check_box(:act, :act_id, {multiple: true}, act.id, nil) %>
+      <%= f.label act.name %><br>
+    <% end %>
   </div>
 
   <div class="actions">

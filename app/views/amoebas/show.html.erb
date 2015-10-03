@@ -1,0 +1,15 @@
+
+<%= @amoeba.avatar %><br>
+<p><strong>Name:</strong> <%= @amoeba.name %></p>
+<p><strong>Generation:</strong> <%= @amoeba.generation %></p>
+<p><strong>Talent:</strong> <%= @amoeba.talent.name %></p>
+<p><strong>Acts:</strong></p>
+<ul>
+  <% @amoeba.acts.each do |act| %>
+  <li><%= link_to act.name, "/acts/#{act.id}" %></li>
+  <% end %>
+</ul>
+
+<%= button_to "Split", split_path %><br>
+
+<%= link_to "Edit", edit_amoeba_path %> | <%= link_to "Back", amoebas_path %>

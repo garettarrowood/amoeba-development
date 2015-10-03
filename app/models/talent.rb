@@ -1,3 +1,3 @@
 class Talent < ActiveRecord::Base
-  belongs_to :ameoba
+  has_many :ameoba
 end

@@ -1,0 +1,20 @@
+<%= form_for(@act) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amoebas, "Select Amoeba Performers" %><br>
+    <% Amoeba.all.each do |amoeba| %>
+      <%= check_box(:amoeba, :amoeba_id, {multiple: true}, amoeba.id, nil) %>
+      <%= f.label amoeba.name %><br>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

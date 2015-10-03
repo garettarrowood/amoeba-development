@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20150930174013) do
     t.string  "name"
     t.integer "generation"
     t.string  "avatar"
+    t.integer "talent_id"
   end
+
+  add_index "amoebas", ["talent_id"], name: "index_amoebas_on_talent_id"
 
   create_table "talents", force: :cascade do |t|
-    t.string  "name"
-    t.integer "amoeba_id"
+    t.string "name"
   end
-
-  add_index "talents", ["amoeba_id"], name: "index_talents_on_amoeba_id"
 
 end
